@@ -1,0 +1,15 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}{{ title }}-FuckingWords{% endblock %}
+
+{% block navbar %}{{ nav.top.render() }}{% endblock %}
+
+{% block content %}
+<div class='container-fluid'>
+    {% block page_content %}{% endblock %}
+</div>
+
+<footer class="footer">
+        <p>&copy; 2018 FuckingWords - uncle-lu</p>
+</footer>
+{% endblock %}

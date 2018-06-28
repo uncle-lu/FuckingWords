@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+<h1>单词</h1>
+<h2>{{ Wo.Title }}</h2>
+<h1>解释</h1>
+<h2>{{ Wo.Meaning }}</h2>
+<br>
+<a class='btn btn-danger' href="{{ url_for('Word_views.change', title=Wo.Title) }}">修改</a>
+{% endblock %}

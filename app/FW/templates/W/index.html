@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+<h1>
+    总列表
+</h1>
+<table class='table table-hover'>
+    <thead>
+        <tr>
+        <th>单词</th>
+        <th>解释</th>
+        <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for i in L %}
+    <tr>
+        <td>{{ i.Title }}</td>
+        <td>{{ i.Meaning }}</td>
+        <td><a class='btn btn-danger' href="{{ url_for('Word_views.change', title=i.Title) }}">修改</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
