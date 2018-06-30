@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<h1>
+    {{ title }} - 单词列表
+</h1>
+<a class="btn btn-danger" href="{{ url_for('Units_views.rename',T=title) }}">Rename</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>单词</th>
+            <th>解释</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in L %}
+        <tr>
+            <td>{{ i.Title }}</td>
+            <td>{{ i.Meaning }}</td>
+            <td>
+                <a class="btn btn-danger" href="{{ url_for('Units_views.delete',T=title,N=i.Title) }}">Delete</a> 
+                <a class="btn btn-info" href="{{ url_for('Words_views.change',title=i.Title) }}">Edit</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a class="btn btn-danger" href="{{ url_for('Units_views.edit',T=title) }}">Edit this Unit</a>
+{% endblock %}

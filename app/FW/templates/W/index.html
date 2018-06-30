@@ -4,6 +4,7 @@
 <h1>
     总列表
 </h1>
+<a class='btn btn-danger' href="{{ url_for('Words_views.add') }}">添加新词汇</a>
 <table class='table table-hover'>
     <thead>
         <tr>
@@ -17,9 +18,24 @@
     <tr>
         <td>{{ i.Title }}</td>
         <td>{{ i.Meaning }}</td>
-        <td><a class='btn btn-danger' href="{{ url_for('Word_views.change', title=i.Title) }}">修改</a></td>
+        <td><a class='btn btn-danger' href="{{ url_for('Words_views.change', title=i.Title) }}">修改</a></td>
     </tr>
     {% endfor %}
     </tbody>
 </table>
+<ul class="pager">
+    {% if page-1 > 0 %}
+    <li class="previous">
+    <a href="{{ url_for('Words_views.index',page=page-1) }}">
+        <span aria-hidden="true">&larr;</span> Older</a>
+    </li> 
+    {% endif %}
+    {% if page+1 < p %}
+    <li class="next">
+        <a href="{{ url_for('Words_views.index',page=page+1) }}">Newer
+            <span aria-hidden="true">&rarr;</span>
+        </a>
+    </li>
+    {% endif %}
+</ul>
 {% endblock %}

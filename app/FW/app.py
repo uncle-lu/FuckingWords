@@ -4,26 +4,34 @@ from flask import Flask, Blueprint
 from flask_bootstrap import Bootstrap
 from flask_mongoengine import MongoEngine
 from flask_nav import Nav
-from flask_nav.elements import Navber, View
+from flask_nav.elements import View, Navbar
+from FW.config import config
 
-App = Flask('FW')
-Boot_strap = Bootstrap()
 Databases = MongoEngine()
+bootstrap = Bootstrap()
 nav = Nav()
 
-Top = Navber('FuckingWords', 
-    View('Home','app.index'),
-    View('Units','U.index'),
-    View('Words','W.index')
+Top = Navbar('FuckingWords', 
+    View('Home','main_views.index'),
+    View('Units','Units_views.index'),
+    View('Words','Words_views.index')
 )
-
-from app.view
 
 def create_app():
 
-    nav.register_element('top', Top)
-    Boot_strap.init_app(App)
-    nav.init_app(App)
+    App = Flask(__name__)
+    App.config.from_object(config['debug'])
+
     Databases.init_app(App)
+    bootstrap.init_app(App)
+    nav.init_app(App)
+    nav.register_element('top', Top)
+
+    from FW.views import Units_views, Words_views
+    from FW.view import main_views
+
+    App.register_blueprint(main_views)
+    App.register_blueprint(Units_views,url_prefix='/Units')
+    App.register_blueprint(Words_views,url_prefix='/Words')
 
     return App

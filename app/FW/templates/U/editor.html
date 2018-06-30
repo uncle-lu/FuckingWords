@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as tool %}
+
+{% block page_content %}
+{{ tool.quick_form(F) }}
+
+<br>
+<p class="bg-danger">请主意输入格式.帮助请查看<a href="{{ url_for('main_views.index') }}">主页</a></p>
+{% endblock %}

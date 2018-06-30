@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+<h1>单元列表</h1>
+<a class='btn btn-danger' href="{{ url_for('Units_views.create') }}">新建新单元</a>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>名称</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for i in L %}
+		<tr>
+			<td>
+				<a href="{{ url_for('Units_views.ones',T=i.Title) }}">{{ i.Title }}</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<ul class="pager">
+    {% if page-1 > 0 %}
+    <li class="previous">
+    <a href="{{ url_for('Units_views.index',page=page-1) }}">
+        <span aria-hidden="true">&larr;</span> Older</a>
+    </li> 
+    {% endif %}
+    {% if page+1 <= p %}
+    <li class="next">
+        <a href="{{ url_for('Units_views.index',page=page+1) }}">Newer
+            <span aria-hidden="true">&rarr;</span>
+        </a>
+    </li>
+    {% endif %}
+</ul>
+{% endblock %}
