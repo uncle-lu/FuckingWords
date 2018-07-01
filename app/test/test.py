@@ -4,11 +4,11 @@ import pdfkit
 import os
 
 options = {
-    'page-size': 'Letter',
-    'margin-top':'0.1in',
-    'margin-right':'0.1in',
-    'margin-bottom':'0.1in',
-    'margin-left':'0.1in',
+    'page-size': 'A4',
+    'margin-top':'0.2in',
+    'margin-right':'0.2in',
+    'margin-bottom':'0.2in',
+    'margin-left':'0.2in',
     'encoding':"UTF-8",
 }
 

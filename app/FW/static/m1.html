@@ -1,0 +1,32 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <style type="text/css">
+        h1 {
+            font-size: 60px;
+        }
+
+        p {
+            font-size: 50px;
+            line-height: 50%;
+        }
+
+        .left {
+            float: left;
+            width: 50%;
+        }
+
+        .right {
+            float: left;
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    {% if title %}
+    <h1>{{ title }}</h1>
+    {% endif %}
+    <div class='left'>{{ left }}</div>
+    <div class='right'>{{ right }}</div>
+</body>
+</html>

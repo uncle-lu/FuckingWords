@@ -9,3 +9,7 @@ class Words(Databases.Document):
 class Units(Databases.Document):
     Title = Databases.StringField(required= True)
     List = Databases.ListField( Databases.StringField(required= True))
+
+class Pdfs(Databases.Document):
+    Title = Database.StringField(required= True)
+    File = Databases.FileField(required= True)
