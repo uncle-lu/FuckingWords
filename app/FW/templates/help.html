@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+<h1>帮助</h1>
+
+<h2>1.简介</h2>
+
+<p>本项目使用Python-flask编写.由uncle-lu完成,解决默写英语单词前.随机,快捷,工整准备默写纸.</p>
+
+<p>使用pdfkit生成pdf,使用mongo数据存储.</p>
+
+<h2>2.基本使用</h2>
+
+<p>本项目主要有单元与单词两个模块.每个单词独立存在.每个单元在新建的时候需要单词在词库内.按照单元为标准生成PDF.</p>
+
+<h2>3.使用说明</h2>
+
+<h3>3-1.单词批量添加</h3>
+
+<p>你可以按照如下格式将单词批量加入词库.(其中如果新加词汇中含有词库内有的老词汇.将会更新该词汇的解释.)</p>
+<code>
+    单词|解释<br>
+    illustrate|vt.说明阐明<br>
+    distinct|adj.清晰的;明显的;明确的<br>
+    distinction|n.差别;区分;卓著<br>
+    immigrant|n.(从外国移入的)移民<br>
+</code>
+<p>其中'|'为英文字符.建议标点符号使用英文字符.(看着舒服)</p>
+
+<h3>3-2.单元单词加入</h3>
+
+<p>新建单元后.你可在下方发现'Edit this Unit'按钮.单击即可编辑该单元的单词列表.其中只需将单词输入即可</p>
+
+<code>illustrate<br>
+distinct<br>
+distinction<br>
+immigrant<br>
+</code>
+<p>其中录入的单词必须是词库中的.请添加单元前将单词录入词库.</p>
+
+<h2>4.开源项目</h2>
+<p>FuckingWords项目开源.您可以在 <a href="https://gitee.com/uncle-lu/FuckingWord">Gitee</a>代码仓库查看全部源码.欢迎您进行魔改.</p>
+{% endblock %}

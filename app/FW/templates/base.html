@@ -1,5 +1,11 @@
 {% extends "bootstrap/base.html" %}
 
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static',filename='words.ico',) }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static',filename='words.ico',) }}" type="image/x-icon">
+{% endblock %}
+
 {% block title %}{{ title }}-FuckingWords{% endblock %}
 
 {% block navbar %}{{ nav.top.render() }}{% endblock %}
@@ -20,7 +26,7 @@
 
 <footer class="footer">
     <div class="container">
-        <p style="text-align:center">&copy; 2018 FuckingWords - uncle-lu</p>
+        <p style="text-align:center">&copy; 2018 FuckingWords - <a href="https://gitee.com/uncle-lu">uncle-lu</a></p>
     </div>
 </footer>
 {% endblock %}

@@ -13,6 +13,7 @@ nav = Nav()
 
 Top = Navbar('FuckingWords', 
     View('Home','main_views.index'),
+    View('Help','main_views.Help'),
     View('Units','Units_views.index'),
     View('Words','Words_views.index'),
     View('Create','Create_pdf_views.pdf_list')
