@@ -11,5 +11,6 @@ class Units(Databases.Document):
     List = Databases.ListField( Databases.StringField(required= True))
 
 class Pdfs(Databases.Document):
-    Title = Database.StringField(required= True)
+    Id = Databases.IntField(required=True)
+    Title = Databases.StringField(required= True)
     File = Databases.FileField(required= True)

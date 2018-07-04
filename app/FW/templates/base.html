@@ -13,11 +13,14 @@
         {{ message }}
     </div>
     {% endfor %}
-
+    <div class='col-md-12'>
     {% block page_content %}{% endblock %}
+    </div>
 </div>
 
 <footer class="footer">
-        <p>&copy; 2018 FuckingWords - uncle-lu</p>
+    <div class="container">
+        <p style="text-align:center">&copy; 2018 FuckingWords - uncle-lu</p>
+    </div>
 </footer>
 {% endblock %}

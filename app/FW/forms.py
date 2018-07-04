@@ -22,3 +22,18 @@ class TextForm(FlaskForm):
 class CreateForm(FlaskForm):
     Title = StringField('Name',validators=[Required()])
     Submit = SubmitField('Submit!')
+
+class Create_pdfForm(FlaskForm):
+    Units_list = StringField(u'生成Units列表',validators=[Required()])
+    Words_count = StringField(u'生成单词数',validators=[Required()])
+    Submit = SubmitField('Submit!')
+
+    def validate_Units_list(self,field):
+        l = field.data.split(',')
+        for i in l:
+            if Units.objects(Title=i).first() == None:
+                return ValidationError("Can't find %s in database" % i)
+    
+    def validate_Words_count(self,field):
+        if int(field.data) > 100:
+            return ValidationError(u"不能生成超过100的单词听写纸")

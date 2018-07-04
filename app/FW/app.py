@@ -14,13 +14,14 @@ nav = Nav()
 Top = Navbar('FuckingWords', 
     View('Home','main_views.index'),
     View('Units','Units_views.index'),
-    View('Words','Words_views.index')
+    View('Words','Words_views.index'),
+    View('Create','Create_pdf_views.pdf_list')
 )
 
 def create_app():
 
     App = Flask(__name__)
-    App.config.from_object(config['debug'])
+    App.config.from_object(config['production'])
 
     Databases.init_app(App)
     bootstrap.init_app(App)

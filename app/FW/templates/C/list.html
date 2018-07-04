@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+<h1>{{ title }}</h1>
+<a class='btn btn-danger' href="{{ url_for('Create_pdf_views.index') }}">新建PDF</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in p %}
+        <tr>
+            <td>{{ i.Id }}</td>
+            <td><a href="{{ url_for('Create_pdf_views.pdf_down',Id = i.Id) }}" >{{ i.Title }}</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
