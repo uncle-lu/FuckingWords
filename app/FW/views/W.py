@@ -14,9 +14,9 @@ def index():
 
     skip_num=(page-1)*25
     
-    Lis = Words.objects.order_by('-create_at').skip(skip_num).limit(25)
+    Lis = Words.objects.order_by('+create_at').skip(skip_num).limit(25)
 
-    p = Words.objects.count() / 25 
+    p = int(Words.objects.count() / 25)
 
     return render_template('W/index.html',title= 'Words',L = Lis, page= page ,p = p)
 
