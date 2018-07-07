@@ -14,7 +14,7 @@ def index():
     
     skip_number= (page-1)*25
 
-    Lis = Units.objects.order_by('-create_at').skip(skip_number).limit(25)
+    Lis = Units.objects.order_by('+create_at').skip(skip_number).limit(25)
 
     p = int(Units.objects.count() / 25)
 

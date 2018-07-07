@@ -1,5 +1,7 @@
-FROM daocloud.io/library/ubuntu:12.10
-ADD . /code
-WORKDIR /code
+FROM ubuntu
+ADD ./FW FW
+ADD ./run.py run.py
+RUN apt-get update
+RUN apt-get install -y wkhtmltopdf
 RUN pip3 install -r requirements.txt
-CMD [ "python", "./run.py" ]
+CMD [ "python3", "./run.py" ]

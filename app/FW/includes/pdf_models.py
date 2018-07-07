@@ -17,7 +17,7 @@ def create_list(W_count,U_list):
             li = U.List
 
             if W_count / U_count > len(li):
-                li = random.shuffle(li)
+                random.shuffle(li)
                 for this_word in li:
                     L.append(Words.objects(Title=this_word).first().Meaning)
                 W_count = W_count - len(li)
@@ -43,8 +43,8 @@ def create_str(L,U_list):
     left = ''
     right = ''
     c = 1 
-    if len(L) > 50 :
-        while c <=50 :
+    if len(L) > 40 :
+        while c <=40 :
             left = left + '\n<p>%d %s</p>' % (c,L[c-1])
             c = c + 1
         while c <= len(L):
@@ -63,7 +63,9 @@ def create_pdf(W_count, U_list):
 
     s,left,right = create_str(L,U_list)
 
-    f = open('static/m1.html').read()
+    f = open('FW/static/m1.html').read()
+
+    s = ','.join(s)
 
     html = Environment().from_string(f).render(title=s, left=left,right=right)
 

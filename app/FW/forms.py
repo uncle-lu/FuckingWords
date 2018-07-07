@@ -35,5 +35,5 @@ class Create_pdfForm(FlaskForm):
                 return ValidationError("Can't find %s in database" % i)
     
     def validate_Words_count(self,field):
-        if int(field.data) > 100:
-            return ValidationError(u"不能生成超过100的单词听写纸")
+        if int(field.data) > 80:
+            return ValidationError(u"不能生成超过80的单词听写纸")
