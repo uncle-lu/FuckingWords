@@ -45,14 +45,14 @@ def create_str(L,U_list):
     c = 1 
     if len(L) > 40 :
         while c <=40 :
-            left = left + '\n<p>%d %s</p>' % (c,L[c-1])
+            left = left + u'\n<p>%d %s</p>' % (c,L[c-1])
             c = c + 1
         while c <= len(L):
-            right = right + '\n<p>%d %s</p>' % (c,L[c-1])
+            right = right + u'\n<p>%d %s</p>' % (c,L[c-1])
             c = c + 1
     else :
         while c <= len(L):
-            left = left + '\n<p>%d %s</p>' % (c,L[c-1])
+            left = left + u'\n<p>%d %s</p>' % (c,L[c-1])
             c = c + 1
     
     return (s,left,right)
