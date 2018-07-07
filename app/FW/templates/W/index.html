@@ -30,7 +30,7 @@
         <span aria-hidden="true">&larr;</span> Older</a>
     </li> 
     {% endif %}
-    {% if page+1 < p %}
+    {% if page+1 <= p %}
     <li class="next">
         <a href="{{ url_for('Words_views.index',page=page+1) }}">Newer
             <span aria-hidden="true">&rarr;</span>
