@@ -16,7 +16,7 @@ def index():
 
     Lis = Units.objects.order_by('+create_at').skip(skip_number).limit(25)
 
-    p = int(Units.objects.count() / 25)
+    p = int(Units.objects.count() / 25 + 0.5)
 
     return render_template('U/index.html',title='Units',L = Lis,page= page,p =p)
 
