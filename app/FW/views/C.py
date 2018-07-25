@@ -3,7 +3,7 @@
 from flask import render_template, redirect, url_for, flash, abort, send_file, request
 from FW.views import Create_pdf_views
 from FW.models import Units, Words, Pdfs
-from FW.includes.pdf_models import create_pdf
+from FW.includes.docx_models import create_docx
 from FW.forms import Create_pdfForm
 
 @Create_pdf_views.route('/',methods=['GET','POST'])
@@ -13,7 +13,7 @@ def index():
 
     if F.validate_on_submit():
         U_list = F.Units_list.data.split(',')
-        Id = create_pdf(int(F.Words_count.data),U_list)
+        Id = create_docx(int(F.Words_count.data),U_list)
         return redirect(url_for('Create_pdf_views.pdf_down',Id = Id))
     
     F.Units_list.data = Up
@@ -43,7 +43,7 @@ def pdf_down(Id):
 
     p = P.File
 
-    return send_file(p,attachment_filename='%d.pdf' % Id)
+    return send_file(p,attachment_filename='%d.docx' % Id)
 
 @Create_pdf_views.route('/delete')
 def delete():

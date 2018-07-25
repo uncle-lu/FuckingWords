@@ -3,4 +3,4 @@ Flask-Bootstrap
 flask-mongoengine 
 flask-nav
 Flask-WTF
-pdfkit
+python-docx
