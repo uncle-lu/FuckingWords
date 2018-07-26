@@ -71,7 +71,12 @@ def create_docx(W_count, U_list):
 
     doc = Pdfs(Id = Id,Title='%d_%s' % (W_count,U_list))
 
-    document.save(doc.File)
+    new = io.BytesIO()
+    document.save(new)
+
+    doc.File.new_file()
+    doc.File.write(new.getvalue())
+    doc.File.close()
 
     doc.save()
 
