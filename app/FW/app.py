@@ -22,7 +22,7 @@ Top = Navbar('FuckingWords',
 def create_app():
 
     App = Flask(__name__)
-    App.config.from_object(config['debug'])
+    App.config.from_object(config['production'])
 
     Databases.init_app(App)
     bootstrap.init_app(App)
