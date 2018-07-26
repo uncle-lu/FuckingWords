@@ -55,7 +55,11 @@ def create_docx(W_count, U_list):
     
     page = create_str(L)
 
+    s = ','.join(U_list)
+
     document = Document() 
+    heading = document.add_heading(s,level=1)
+    heading.style.paragraph_format.space_before = Cm(0)
     p = document.add_paragraph(page)
     k = p.style.paragraph_format
     k.line_spacing = Cm(0.5)
@@ -63,7 +67,7 @@ def create_docx(W_count, U_list):
     sections = document.sections
     for section in sections:
         section.top_margin = Cm(1)
-        section.bottom_margin = Cm(1)
+        section.bottom_margin = Cm(0.5)
         section.left_margin = Cm(1)
         section.right_margin = Cm(1)
 

@@ -35,6 +35,6 @@ def create_app():
     App.register_blueprint(main_views)
     App.register_blueprint(Units_views,url_prefix='/Units')
     App.register_blueprint(Words_views,url_prefix='/Words')
-    App.register_blueprint(Create_pdf_views,url_prefix='/C_pdfs')
+    App.register_blueprint(Create_pdf_views,url_prefix='/C_docx')
 
     return App
